@@ -1,13 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View } from 'react-native'
+import { Provider } from 'react-redux'
+import { store } from './store'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Text>This gonna be a Uber clone app</Text>
+        <StatusBar style='auto' />
+      </View>
+    </Provider>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -17,4 +21,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
