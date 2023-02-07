@@ -1,14 +1,27 @@
 import { ArrowRightCircleIcon } from 'react-native-heroicons/solid'
+import { useNavigation } from '@react-navigation/native'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { NavOptionsType } from '../utils/constants'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackParamList } from '../navigation/StackNavigation'
 
 interface NavTouchableProps {
   item: NavOptionsType
 }
 
+type NavTouchableNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'MapScreen'
+>
+
 export default function NavTouchable({ item }: NavTouchableProps) {
+  const navigation = useNavigation<NavTouchableNavigationProp>()
+
   return (
-    <TouchableOpacity className='p-2 pl-6 pb-8 pt-4 bg-gray-200 m-2 w-40'>
+    <TouchableOpacity
+      onPress={() => navigation.navigate(item.screen)}
+      className='p-2 pl-6 pb-8 pt-4 bg-gray-200 m-2 w-40'
+    >
       <View>
         <Image
           source={{

@@ -2,10 +2,10 @@ export type NavOptionsType = {
   id: string
   image: string
   title: string
-  screen: string
+  screen: 'MapScreen' | 'EatsScreen'
 }
 
-export const navOptionsData = [
+export const navOptionsData: NavOptionsType[] = [
   {
     id: '123',
     image: 'https://links.papareact.com/3pn',

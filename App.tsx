@@ -1,13 +1,16 @@
 import { Provider } from 'react-redux'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import HomeScreen from './screens/HomeScreen'
+import { NavigationContainer } from '@react-navigation/native'
 import { store } from './store'
+import StackNavigation from './navigation/StackNavigation'
 
 export default function App() {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <HomeScreen />
+        <NavigationContainer>
+          <StackNavigation />
+        </NavigationContainer>
       </SafeAreaProvider>
     </Provider>
   )
